@@ -1,0 +1,25 @@
+{% extends 'projects/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <h1 style="text-align:center"> Welcome to my personal website</h1>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+    >
+    <div class="row">
+        <div class="col-md-4">
+            <a href="{% url 'projects:all_projects' %}" type="button">projects</a>
+        </div>
+        <div class="col-md-4">
+            <div class="card-mb-2">blog</div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-mb-2">other stuff</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
