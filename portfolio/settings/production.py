@@ -7,7 +7,7 @@ SECRET_KEY = get_secret('django-secret-key', 'us-west-2')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['.jasonsworkspace.com']
+ALLOWED_HOSTS = ['.jasonsworkspace.dev']
 
 db_credentials = json.loads(get_secret('jws_db_credentials', 'us-west-2'))
 db_user = db_credentials['db_user']
