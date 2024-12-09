@@ -1,5 +1,6 @@
 from .base_settings import *
 from utils.secret_manager import get_secret
+import json
 
 
 SECRET_KEY = get_secret('django-secret-key', 'us-west-2')
@@ -8,12 +9,27 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['.jasonsworkspace.com']
 
+db_credentials = json.loads(get_secret('jws_db_credentials', 'us-west-2'))
+db_user = db_credentials['db_user']
+db_password = db_credentials['db_password']
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'jws_db',
+        'USER': db_user,
+        'PASSWORD': db_password,
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
 STATIC_ROOT = "/var/www/jasonsworkspace.com/static"
 
