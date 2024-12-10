@@ -1,6 +1,10 @@
 """Gunicorn *production* config file"""
 
 import multiprocessing
+import os
+
+# Use production settings
+os.environ['DJANGO_SETTINGS_MODULE'] = 'portfolio.settings.production'
 
 # Django WSGI application path in pattern MODULE_NAME:VARIABLE_NAME
 wsgi_app = "portfolio.wsgi:application"

@@ -7,7 +7,7 @@ SECRET_KEY = get_secret('django-secret-key', 'us-west-2')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['.jasonsworkspace.com']
+ALLOWED_HOSTS = ['.jasonsworkspace.dev']
 
 db_credentials = json.loads(get_secret('jws_db_credentials', 'us-west-2'))
 db_user = db_credentials['db_user']
@@ -31,10 +31,10 @@ DATABASES = {
 #     }
 # }
 
-STATIC_ROOT = "/var/www/jasonsworkspace.com/static"
+STATIC_ROOT = "/var/www/jasonsworkspace.dev/static"
 
 # Require HTTPS
-SECURE_HSTS_SECONDS = 30 #2_592_000  # 30 days
+SECURE_HSTS_SECONDS = 31536000  # 1 year
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
