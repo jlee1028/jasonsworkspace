@@ -31,7 +31,7 @@ DATABASES = {
 #     }
 # }
 
-STATIC_ROOT = "/var/www/jasonsworkspace.com/static"
+STATIC_ROOT = "/var/www/jasonsworkspace.dev/static"
 
 # Require HTTPS
 SECURE_HSTS_SECONDS = 30 #2_592_000  # 30 days
