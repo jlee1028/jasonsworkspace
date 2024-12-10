@@ -1,5 +1,10 @@
 """Gunicorn *development* config file"""
 
+import os
+
+# Use development settings
+os.environ['DJANGO_SETTINGS_MODULE'] = 'portfolio.settings.development'
+
 # Django WSGI application path in pattern MODULE_NAME:VARIABLE_NAME
 wsgi_app = "portfolio.wsgi:application"
 # The granularity of Error log outputs
