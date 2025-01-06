@@ -10,6 +10,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['.jasonsworkspace.dev']
 
 db_credentials = json.loads(get_secret('jws_db_credentials', 'us-west-2'))
+db_endpoint = db_credentials['db_endpoint']
 db_user = db_credentials['db_user']
 db_password = db_credentials['db_password']
 
@@ -19,7 +20,7 @@ DATABASES = {
         'NAME': 'jws_db',
         'USER': db_user,
         'PASSWORD': db_password,
-        'HOST': 'localhost',
+        'HOST': db_endpoint,
         'PORT': '5432',
     }
 }
