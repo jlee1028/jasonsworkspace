@@ -4,37 +4,44 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['.jasonsworkspace.dev', 'localhost']
+ALLOWED_HOSTS = ['.jasonsworkspace.dev']
 
-# LOGGING = {
-#     "version": 1,
-#     "disable_existing_loggers": False,
-#     "root": {"level": "INFO", "handlers": ["file"]},
-#     "handlers": {
-#         "file": {
-#             "level": "INFO",
-#             "class": "logging.FileHandler",
-#             "filename": "/var/log/django/django.log",
-#             "formatter": "app",
-#         },
-#     },
-#     "loggers": {
-#         "django": {
-#             "handlers": ["file"],
-#             "level": "INFO",
-#             "propagate": True
-#         },
-#     },
-#     "formatters": {
-#         "app": {
-#             "format": (
-#                 u"%(asctime)s [%(levelname)-8s] "
-#                 "(%(module)s.%(funcName)s) %(message)s"
-#             ),
-#             "datefmt": "%Y-%m-%d %H:%M:%S",
-#         },
-#     },
-# }
+# Databases
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "/data/db.sqlite3",
+    }
+}
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "root": {"level": "INFO", "handlers": ["console"]},
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "app",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+            "propagate": True,
+        },
+    },
+    "formatters": {
+        "app": {
+            "format": (
+                "%(asctime)s [%(levelname)-8s] "
+                "(%(module)s.%(funcName)s) %(message)s"
+            ),
+            "datefmt": "%Y-%m-%d %H:%M:%S",
+        },
+    },
+}
+
 
 STATIC_ROOT = "/var/www/jasonsworkspace.dev/static"
 
